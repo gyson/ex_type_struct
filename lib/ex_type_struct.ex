@@ -1,14 +1,5 @@
 defmodule ExTypeStruct do
-  @moduledoc """
-  Documentation for `ExTypeStruct`.
-
-  ## Examples
-
-      use ExTypeStruct do
-        name :: String.t()
-        age :: integer() \\ 123
-      end
-  """
+  @moduledoc false
 
   @doc false
   defmacro __using__(do: {:__block__, _, block}) do
