@@ -1,6 +1,7 @@
 # ExTypeStruct
 
-A simple and concise way to annotate structs with type info.
+A simple and concise way to annotate structs (or exceptions) with type info.
+
 ## Installation
 
 The package can be installed by adding `ex_type_struct` to your list of dependencies in `mix.exs`:
@@ -36,6 +37,8 @@ end
 - Required fields would be added to `@enforce_keys` automatically.
 - Optional fields must have form `field_name :: field_type \\ default_value`.
 - Optional fields won't be added to `@enforce_keys`.
+
+Note: do `use ExTypeStruct.Exception do ... end` if it's for exception.
 
 ## Example
 
@@ -250,11 +253,27 @@ defmodule MyStruct do
 end
 ```
 
-## Stability
+### Support exception
 
-API and syntax are pretty concise and mostly finalized. Currently, no plan to make API / syntax change.
+```elixir
+defmodule MyException do
+  use ExTypeStruct.Exception do
+    message :: String.t()
+  end
+end
 
-Probably would only make updates for bug fixes and error message improvements.
+# above code would be compiled / transformed to following code:
+
+defmodule MyException do
+  @enforce_keys [:message]
+
+  defexception [message: nil]
+
+  @type t :: %__MODULE__{
+    message: String.t()
+  }
+end
+```
 
 ## License
 
