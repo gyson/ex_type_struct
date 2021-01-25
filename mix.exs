@@ -18,7 +18,7 @@ defmodule ExTypeStruct.MixProject do
       source_url: @github_url,
       homepage_url: @github_url,
       docs: [
-        main: "README",
+        main: "readme",
         extras: ["README.md"]
       ]
     ]
