@@ -13,9 +13,9 @@ defmodule ExTypeStruct do
 
   defmacro __using__(expr) do
     raise ArgumentError,
-          "Invalid usage of ExTypeStruct, should be `do ... end` instead of `#{
-            Macro.to_string(expr)
-          }` #{format_error_context(__CALLER__)}"
+          "Invalid argument: must be `do ... end` instead of `#{Macro.to_string(expr)}` #{
+            format_error_context(__CALLER__)
+          }"
   end
 
   defp parse_block(block, caller) do
@@ -74,6 +74,6 @@ defmodule ExTypeStruct do
   end
 
   defp format_error_context(caller) do
-    "when use ExTypeStruct in module #{caller.module} in file #{caller.file}:#{caller.line}"
+    "when use ExTypeStruct in module #{caller.module} in file #{caller.file}:#{caller.line}."
   end
 end

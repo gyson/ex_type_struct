@@ -145,7 +145,7 @@ defmodule ExTypeStructTest do
 
   describe "unhappy path" do
     test "should raise erro with invalid expr" do
-      assert_raise ArgumentError, ~r/Invalid usage of ExTypeStruct/, fn ->
+      assert_raise ArgumentError, ~r/Invalid argument/, fn ->
         Code.eval_quoted(
           quote do
             defmodule UnhappyV1 do
