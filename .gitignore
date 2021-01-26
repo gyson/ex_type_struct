@@ -27,3 +27,5 @@ ex_type_struct-*.tar
 /tmp
 
 .elixir_ls
+
+.DS_Store

@@ -18,7 +18,6 @@ end
 
 ```elixir
 defmodule MyStruct do
-
   use ExTypeStruct do
     # this is a required field
     required_field :: required_field_type()
@@ -28,7 +27,18 @@ defmodule MyStruct do
 
     # ^^^ required and optional fields are distinguished by if they have default value.
   end
+end
 
+defmodule MyException do
+  use ExTypeStruct.Exception do
+    # this is a required field
+    required_field :: required_field_type()
+
+    # this is an optional field
+    optional_field :: optional_field_type() \\ default_value()
+
+    # ^^^ required and optional fields are distinguished by if they have default value.
+  end
 end
 ```
 
@@ -37,8 +47,6 @@ end
 - Required fields would be added to `@enforce_keys` automatically.
 - Optional fields must have form `field_name :: field_type \\ default_value`.
 - Optional fields won't be added to `@enforce_keys`.
-
-Note: do `use ExTypeStruct.Exception do ... end` if it's for exception.
 
 ## Example
 
