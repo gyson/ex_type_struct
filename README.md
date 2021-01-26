@@ -42,7 +42,7 @@ defmodule MyException do
 end
 ```
 
-- Use `do ... end` block to contain a list of required / optional fields
+- Use `do ... end` block to contain a list of required / optional fields.
 - Required fields must have form `field_name :: field_type`.
 - Required fields would be added to `@enforce_keys` automatically.
 - Optional fields must have form `field_name :: field_type \\ default_value`.
