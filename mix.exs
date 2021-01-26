@@ -6,7 +6,7 @@ defmodule ExTypeStruct.MixProject do
   def project do
     [
       app: :ex_type_struct,
-      version: "0.1.0",
+      version: "0.1.1",
       description: "A simple and concise way to annotate structs (or exceptions) with type info.",
       elixir: "~> 1.9",
       start_permanent: Mix.env() == :prod,
